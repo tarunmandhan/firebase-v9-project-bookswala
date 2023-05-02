@@ -9,12 +9,23 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Signup a user.....");
+
+    const result = await firebase.signupUserWithEmailAndPassword(
+      email,
+      password
+    );
+    console.log("Signup successfull", result);
+  };
+
   console.log(firebase);
 
   return (
     <>
       <div className="container mt-5">
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
