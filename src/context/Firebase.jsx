@@ -8,7 +8,7 @@ import {
   signInWithPopup,
   onAuthStateChanged,
 } from "firebase/auth";
-
+import { getFirestore } from "firebase/firestore";
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
@@ -24,6 +24,7 @@ export const useFirebase = () => useContext(FirebaseContext);
 
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
+const firestore = getFirestore(firebaseApp);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -46,6 +47,8 @@ export const FirebaseProvider = (props) => {
   const signinWithGoogle = (email, password) =>
     signInWithPopup(firebaseAuth, googleProvider);
 
+  const handleCreateNewListing = (name, isbn, price, cover) => {};
+
   const isLoggedIn = user ? true : false;
 
   return (
@@ -55,6 +58,7 @@ export const FirebaseProvider = (props) => {
         signinUserWithEmailAndPassword,
         signinWithGoogle,
         isLoggedIn,
+        handleCreateNewListing,
       }}
     >
       {props.children}
