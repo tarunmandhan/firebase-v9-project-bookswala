@@ -7,6 +7,7 @@ import MyNavbar from "./components/Navbar";
 //pages
 import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
+import ListingPage from "./pages/List";
 
 //css
 import "./App.css";
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/" element={<h1>Home page</h1>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/list" element={<ListingPage />} />
       </Routes>
     </>
   );
