@@ -50,6 +50,10 @@ const LoginPage = () => {
             Signin
           </Button>
         </Form>
+        <h1 className="mt-5 mb-5">OR</h1>
+        <Button onClick={firebase.signinWithGoogle} variant="danger">
+          Signin with Google
+        </Button>
       </div>
     </>
   );
