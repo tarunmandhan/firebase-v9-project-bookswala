@@ -25,6 +25,7 @@ const RegisterPage = () => {
   return (
     <>
       <div className="container mt-5">
+        <h1>Signup Page</h1>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
