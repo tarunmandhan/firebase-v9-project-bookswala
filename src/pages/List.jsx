@@ -53,10 +53,9 @@ const ListingPage = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Choose File</Form.Label>
+            <Form.Label>Cover Pic</Form.Label>
             <Form.Control
               onChange={(e) => setCoverPic(e.target.files[0])}
-              value={price}
               type="file"
               placeholder="Select File"
             />
