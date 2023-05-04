@@ -8,7 +8,7 @@ import MyNavbar from "./components/Navbar";
 import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
 import ListingPage from "./pages/List";
-
+import HomePage from "./pages/Home";
 //css
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -18,7 +18,7 @@ const App = () => {
     <>
       <MyNavbar />
       <Routes>
-        <Route path="/" element={<h1>Home page</h1>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/list" element={<ListingPage />} />
