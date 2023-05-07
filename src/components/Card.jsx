@@ -13,7 +13,7 @@ const BookCard = (props) => {
 
   return (
     <>
-      <Card className="mt-3" style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem", margin: "25px" }}>
         <Card.Img variant="top" src={url} />
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
@@ -21,7 +21,6 @@ const BookCard = (props) => {
             This book has a title {props.name} and this book is sold by
             {props.displayName} and this cost Rs. {props.price}.
           </Card.Text>
-          
           <Button variant="primary">Buy Book</Button>
         </Card.Body>
       </Card>
