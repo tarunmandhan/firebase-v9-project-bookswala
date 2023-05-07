@@ -9,7 +9,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const FirebaseContext = createContext(null);
 
@@ -47,8 +47,7 @@ export const FirebaseProvider = (props) => {
   const signinUserWithEmailAndPassword = (email, password) => {
     signInWithEmailAndPassword(firebaseAuth, email, password);
   };
-  const signinWithGoogle = (email, password) =>
-    signInWithPopup(firebaseAuth, googleProvider);
+  const signinWithGoogle = () => signInWithPopup(firebaseAuth, googleProvider);
 
   console.log(user);
 
@@ -71,6 +70,10 @@ export const FirebaseProvider = (props) => {
     return getDocs(collection(firestore, "books"));
   };
 
+  const getImageURL = (path) => {
+    return getDownloadURL(ref(storage, path));
+  };
+
   const isLoggedIn = user ? true : false;
 
   return (
@@ -82,6 +85,7 @@ export const FirebaseProvider = (props) => {
         isLoggedIn,
         handleCreateNewListing,
         listAllBooks,
+        getImageURL,
       }}
     >
       {props.children}
