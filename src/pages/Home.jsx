@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase";
+import BookCard from "../components/Card";
 
 const HomePage = () => {
   const firebase = useFirebase();
@@ -12,9 +13,9 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container mt-5">
         {books.map((book) => (
-          <li>{book.data().name}</li>
+          <BookCard key={book.id} {...book.data()} />
         ))}
       </div>
     </>
